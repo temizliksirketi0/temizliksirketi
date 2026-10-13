@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Temizlik Şirketi | Profesyonel Temizlik Hizmetleri</title>
+<meta name="description" content="Temizlik Şirketi - Ev, ofis, villa, cam ve inşaat sonrası profesyonel temizlik hizmetleri. Hemen arayın!" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --primary:#0ea5e9;
+    --primary-dark:#0284c7;
+    --accent:#10b981;
+    --dark:#0f172a;
+    --light:#f8fafc;
+    --gray:#64748b;
+    --gradient:linear-gradient(135deg,#0ea5e9 0%,#10b981 100%);
+    --gradient-dark:linear-gradient(135deg,rgba(15,23,42,.92) 0%,rgba(30,41,59,.88) 100%);
+    --shadow:0 10px 40px rgba(14,165,233,.15);
+    --shadow-hover:0 20px 60px rgba(14,165,233,.3);
+  }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--dark);
+    background:#fff;
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    padding:18px 5%;
+    display:flex; align-items:center; justify-content:space-between;
+    transition:.4s;
+    background:rgba(255,255,255,0);
+  }
+  nav.scrolled{
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 30px rgba(0,0,0,.06);
+    padding:12px 5%;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; font-size:1.25rem;
+    color:#fff; text-decoration:none;
+    transition:.3s;
+  }
+  nav.scrolled .logo{ color:var(--dark); }
+  .logo-icon{
+    width:42px; height:42px; border-radius:12px;
+    background:var(--gradient);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    box-shadow:0 4px 15px rgba(14,165,233,.4);
+    flex-shrink:0;
+  }
+  .logo span{ color:var(--primary); }
+  .nav-links{ display:flex; gap:32px; list-style:none; }
+  .nav-links a{
+    text-decoration:none; color:#fff; font-weight:500; font-size:.95rem;
+    position:relative; transition:.3s;
+  }
+  nav.scrolled .nav-links a{ color:var(--dark); }
+  .nav-links a::after{
+    content:''; position:absolute; bottom:-6px; left:0; width:0; height:2px;
+    background:var(--gradient); transition:.3s; border-radius:2px;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-links a:hover{ color:var(--primary); }
+
+  .nav-cta{
+    background:var(--gradient); color:#fff !important;
+    padding:10px 22px; border-radius:50px;
+    font-weight:600; font-size:.9rem;
+    text-decoration:none; transition:.3s;
+    box-shadow:0 6px 20px rgba(14,165,233,.35);
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 25px rgba(14,165,233,.5); }
+
+  .menu-btn{
+    display:none; background:none; border:none; cursor:pointer;
+    font-size:1.7rem; color:#fff;
+  }
+  nav.scrolled .menu-btn{ color:var(--dark); }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    position:relative;
+    display:flex; align-items:center;
+    padding:120px 5% 80px;
+    overflow:hidden;
+    background:
+      linear-gradient(135deg,rgba(15,23,42,.92) 0%,rgba(30,41,59,.85) 100%),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+  }
+  .hero::before{
+    content:''; position:absolute; top:-30%; right:-10%;
+    width:700px; height:700px; border-radius:50%;
+    background:radial-gradient(circle,rgba(14,165,233,.35),transparent 70%);
+    animation:float 8s ease-in-out infinite;
+  }
+  .hero::after{
+    content:''; position:absolute; bottom:-20%; left:-10%;
+    width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(circle,rgba(16,185,129,.25),transparent 70%);
+    animation:float 10s ease-in-out infinite reverse;
+  }
+  @keyframes float{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(30px,-30px); }
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:1.2fr 1fr;
+    gap:60px; align-items:center; width:100%;
+  }
+  .hero-text h1{
+    font-size:clamp(2rem,4.5vw,3.5rem);
+    font-weight:800; color:#fff; line-height:1.15;
+    margin-bottom:22px;
+    text-shadow:0 4px 20px rgba(0,0,0,.3);
+  }
+  .hero-text h1 span{
+    background:var(--gradient);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero-text p{
+    font-size:1.1rem; color:#e2e8f0; margin-bottom:34px;
+    max-width:560px;
+    text-shadow:0 2px 10px rgba(0,0,0,.3);
+  }
+  .hero-buttons{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 30px; border-radius:50px;
+    font-weight:600; font-size:1rem;
+    text-decoration:none; cursor:pointer; border:none;
+    transition:.3s; font-family:inherit;
+  }
+  .btn-primary{
+    background:var(--gradient); color:#fff;
+    box-shadow:0 10px 30px rgba(14,165,233,.4);
+  }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 15px 40px rgba(14,165,233,.55); }
+  .btn-outline{
+    background:rgba(255,255,255,.1); color:#fff;
+    border:1.5px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(10px);
+  }
+  .btn-outline:hover{ background:rgba(255,255,255,.2); transform:translateY(-3px); }
+
+  .hero-stats{
+    display:flex; gap:40px; margin-top:50px; flex-wrap:wrap;
+  }
+  .stat h3{
+    font-size:2rem; font-weight:800;
+    background:var(--gradient);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .stat p{ color:#cbd5e1; font-size:.85rem; }
+
+  .hero-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:28px; padding:38px 32px;
+    box-shadow:0 30px 80px rgba(0,0,0,.3);
+    animation:slideUp 1s ease;
+  }
+  @keyframes slideUp{
+    from{ opacity:0; transform:translateY(40px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .hero-card h3{
+    color:#fff; font-size:1.3rem; margin-bottom:8px;
+  }
+  .hero-card > p{ color:#cbd5e1; font-size:.9rem; margin-bottom:24px; }
+  .contact-item{
+    display:flex; align-items:center; gap:14px;
+    padding:14px; border-radius:16px;
+    background:rgba(255,255,255,.06);
+    margin-bottom:12px; transition:.3s;
+    text-decoration:none; color:#fff;
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .contact-item:hover{
+    background:rgba(14,165,233,.18);
+    border-color:rgba(14,165,233,.4);
+    transform:translateX(5px);
+  }
+  .contact-icon{
+    width:46px; height:46px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; flex-shrink:0;
+  }
+  .ci-blue{ background:rgba(14,165,233,.25); }
+  .ci-green{ background:rgba(16,185,129,.25); }
+  .contact-item .info small{
+    display:block; font-size:.72rem; color:#cbd5e1;
+    text-transform:uppercase; letter-spacing:.5px;
+  }
+  .contact-item .info strong{
+    font-size:.98rem; font-weight:600;
+  }
+  .hero-card .wa-btn{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%; margin-top:20px;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    color:#fff; padding:15px; border-radius:50px;
+    font-weight:600; text-decoration:none;
+    box-shadow:0 10px 30px rgba(37,211,102,.35);
+    transition:.3s;
+  }
+  .hero-card .wa-btn:hover{ transform:translateY(-3px); box-shadow:0 15px 40px rgba(37,211,102,.5); }
+
+  /* ===== SECTION BASE ===== */
+  section{ padding:100px 5%; }
+  .section-head{
+    text-align:center; max-width:700px;
+    margin:0 auto 60px;
+  }
+  .section-tag{
+    display:inline-block;
+    background:rgba(14,165,233,.1); color:var(--primary);
+    padding:6px 18px; border-radius:50px;
+    font-size:.8rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:1px;
+    margin-bottom:16px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,3.5vw,2.6rem);
+    font-weight:800; margin-bottom:14px;
+  }
+  .section-head h2 span{
+    background:var(--gradient);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .section-head p{ color:var(--gray); font-size:1.02rem; }
+
+  /* ===== SERVICES ===== */
+  .services{
+    background:var(--light);
+    position:relative;
+  }
+  .services::before{
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    opacity:.04;
+    pointer-events:none;
+  }
+  .services-grid{
+    max-width:1200px; margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:26px;
+    position:relative; z-index:2;
+  }
+  .service-card{
+    background:#fff; border-radius:22px; padding:0 0 30px 0;
+    box-shadow:0 4px 20px rgba(0,0,0,.05);
+    border:1px solid #eef2f7;
+    transition:.4s; position:relative; overflow:hidden;
+    cursor:pointer;
+  }
+  .service-card .service-img{
+    height:170px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    transition:.5s;
+  }
+  .service-card .service-img::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(14,165,233,.15),rgba(14,165,233,.55));
+    transition:.4s;
+  }
+  .service-card:hover .service-img{ transform:scale(1.08); }
+  .service-card:hover .service-img::after{ background:linear-gradient(180deg,rgba(16,185,129,.2),rgba(16,185,129,.6)); }
+  .service-card .service-body{ padding:0 26px; margin-top:-40px; position:relative; z-index:2; }
+  .service-icon{
+    width:64px; height:64px; border-radius:18px;
+    background:var(--gradient);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.8rem; margin-bottom:18px;
+    box-shadow:0 10px 25px rgba(14,165,233,.4);
+    border:3px solid #fff;
+    transition:.4s;
+  }
+  .service-card:hover .service-icon{ transform:rotate(-8deg) scale(1.08); }
+  .service-card h3{
+    font-size:1.15rem; font-weight:700; margin-bottom:10px;
+  }
+  .service-card p{ color:var(--gray); font-size:.9rem; }
+  .service-card::before{
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px;
+    background:var(--gradient); transform:scaleX(0); transform-origin:left;
+    transition:.4s; z-index:3;
+  }
+  .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-hover);
+    border-color:transparent;
+  }
+  .service-card:hover::before{ transform:scaleX(1); }
+
+  /* ===== WHY US ===== */
+  .why .container{
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:70px; align-items:center;
+  }
+  .why-visual{
+    position:relative; border-radius:28px; overflow:hidden;
+    color:#fff;
+    box-shadow:0 30px 70px rgba(14,165,233,.3);
+    min-height:460px;
+    background:
+      linear-gradient(135deg,rgba(14,165,233,.85) 0%,rgba(16,185,129,.8) 100%),
+      url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+    padding:50px 40px;
+  }
+  .why-visual::after{
+    content:''; position:absolute; top:-50px; right:-50px;
+    width:200px; height:200px; border-radius:50%;
+    background:rgba(255,255,255,.1);
+  }
+  .why-visual h3{ font-size:1.6rem; margin-bottom:14px; font-weight:700; position:relative; }
+  .why-visual p{ opacity:.95; margin-bottom:28px; position:relative; }
+  .why-list{ display:flex; flex-direction:column; gap:16px; position:relative; z-index:2; }
+  .why-list li{
+    list-style:none; display:flex; gap:12px; align-items:flex-start;
+    background:rgba(255,255,255,.15);
+    padding:14px 18px; border-radius:14px;
+    backdrop-filter:blur(10px);
+    font-size:.92rem;
+  }
+  .why-list li::before{ content:'✓'; font-weight:800; }
+
+  .feature{
+    display:flex; gap:18px; margin-bottom:30px;
+    padding:20px; border-radius:18px; transition:.3s;
+  }
+  .feature:hover{ background:var(--light); transform:translateX(6px); }
+  .feature-icon{
+    width:54px; height:54px; border-radius:14px;
+    background:rgba(14,165,233,.1); color:var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; flex-shrink:0;
+  }
+  .feature h4{ font-size:1.05rem; margin-bottom:4px; }
+  .feature p{ color:var(--gray); font-size:.9rem; }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    background:
+      linear-gradient(135deg,rgba(15,23,42,.95) 0%,rgba(30,41,59,.92) 100%),
+      url('https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .contact::before{
+    content:''; position:absolute; top:-30%; left:-10%;
+    width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle,rgba(14,165,233,.25),transparent 70%);
+  }
+  .contact .section-head h2{ color:#fff; }
+  .contact .section-head p{ color:#cbd5e1; }
+  .contact-grid{
+    max-width:600px; margin:0 auto;
+    display:grid; grid-template-columns:1fr;
+    gap:26px; position:relative; z-index:2;
+  }
+  .contact-card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px; padding:44px 34px;
+    text-align:center; transition:.4s;
+    backdrop-filter:blur(10px);
+  }
+  .contact-card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.1);
+    border-color:rgba(14,165,233,.4);
+    box-shadow:0 20px 50px rgba(14,165,233,.2);
+  }
+  .contact-card .avatar{
+    width:90px; height:90px; border-radius:50%;
+    background:var(--gradient);
+    margin:0 auto 20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2.2rem; font-weight:700; color:#fff;
+    box-shadow:0 10px 30px rgba(14,165,233,.4);
+  }
+  .contact-card h3{ font-size:1.35rem; margin-bottom:6px; }
+  .contact-card .role{ color:#cbd5e1; font-size:.88rem; margin-bottom:22px; }
+  .contact-card .phone{
+    display:block; font-size:1.5rem; font-weight:700;
+    color:#fff; text-decoration:none; margin-bottom:22px;
+    letter-spacing:.5px;
+  }
+  .contact-card .phone:hover{ color:var(--primary); }
+  .contact-card .actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn-call{
+    background:var(--gradient); color:#fff;
+    padding:13px 28px; border-radius:50px;
+    font-size:.92rem; font-weight:600;
+    text-decoration:none; transition:.3s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-call:hover{ transform:translateY(-2px); box-shadow:0 10px 25px rgba(14,165,233,.4); }
+  .btn-wa{
+    background:linear-gradient(135deg,#25D366,#128C7E); color:#fff;
+    padding:13px 28px; border-radius:50px;
+    font-size:.92rem; font-weight:600;
+    text-decoration:none; transition:.3s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-wa:hover{ transform:translateY(-2px); box-shadow:0 10px 25px rgba(37,211,102,.5); }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:#0a0f1c; color:#94a3b8;
+    padding:50px 5% 30px; text-align:center;
+    font-size:.9rem;
+  }
+  footer .logo{ justify-content:center; color:#fff; margin-bottom:16px; }
+  footer p{ margin-bottom:8px; }
+  footer .copy{
+    margin-top:22px; padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.08);
+    font-size:.82rem;
+  }
+  footer .copy span{ color:var(--primary); }
+
+  /* ===== FLOATING WHATSAPP ===== */
+  .float-wa{
+    position:fixed; bottom:26px; right:26px; z-index:999;
+    width:62px; height:62px; border-radius:50%;
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.5);
+    text-decoration:none; color:#fff; font-size:1.8rem;
+    transition:.3s; animation:pulse 2s infinite;
+  }
+  .float-wa:hover{ transform:scale(1.12); }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,.6); }
+    70%{ box-shadow:0 0 0 20px rgba(37,211,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  /* ===== VISITOR INFO PANEL (gizli) ===== */
+  #visitorPanel{
+    position:fixed; bottom:100px; right:26px; z-index:998;
+    width:320px; max-height:70vh; overflow-y:auto;
+    background:rgba(15,23,42,.97);
+    color:#e2e8f0;
+    border:1px solid rgba(14,165,233,.4);
+    border-radius:16px; padding:18px;
+    font-size:.78rem; font-family:monospace;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    display:none;
+    backdrop-filter:blur(10px);
+  }
+  #visitorPanel.open{ display:block; }
+  #visitorPanel h4{
+    color:#0ea5e9; margin-bottom:10px; font-size:.9rem;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  #visitorPanel .close-btn{
+    background:none; border:none; color:#94a3b8;
+    cursor:pointer; font-size:1rem;
+  }
+  #visitorPanel .row{
+    display:flex; justify-content:space-between;
+    padding:6px 0; border-bottom:1px solid rgba(255,255,255,.06);
+    gap:10px;
+  }
+  #visitorPanel .row strong{ color:#10b981; font-weight:600; text-align:right; word-break:break-all; }
+  #visitorPanel .log-title{
+    margin-top:12px; color:#0ea5e9; font-weight:700;
+    font-size:.8rem; margin-bottom:6px;
+  }
+  #visitorPanel .log-entry{
+    padding:6px 8px; background:rgba(255,255,255,.04);
+    border-radius:6px; margin-bottom:5px;
+    font-size:.72rem; color:#cbd5e1;
+  }
+
+  /* Admin toggle button (gizli köşe) */
+  #adminToggle{
+    position:fixed; bottom:26px; left:26px; z-index:999;
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(15,23,42,.6);
+    color:#64748b; border:1px solid rgba(255,255,255,.1);
+    cursor:pointer; font-size:.8rem;
+    opacity:.25; transition:.3s;
+  }
+  #adminToggle:hover{ opacity:1; }
+
+  /* ===== REVEAL ANIMATION ===== */
+  .reveal{ opacity:0; transform:translateY(40px); transition:.8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.active{ opacity:1; transform:translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px){
+    .hero{ background-attachment:scroll; }
+    .hero-content{ grid-template-columns:1fr; gap:40px; }
+    .hero-text h1{ font-size:2.2rem; }
+    .why .container{ grid-template-columns:1fr; gap:40px; }
+    .nav-links{
+      position:fixed; top:0; right:-100%;
+      height:100vh; width:75%; max-width:320px;
+      background:#fff; flex-direction:column;
+      padding:100px 30px; gap:26px;
+      transition:.4s; box-shadow:-10px 0 40px rgba(0,0,0,.1);
+    }
+    .nav-links.open{ right:0; }
+    .nav-links a{ color:var(--dark) !important; font-size:1.05rem; }
+    .menu-btn{ display:block; z-index:1100; }
+    .nav-cta{ display:none; }
+    .contact{ background-attachment:scroll; }
+  }
+  @media (max-width:500px){
+    section{ padding:70px 5%; }
+    .hero{ padding:110px 5% 60px; }
+    .hero-buttons{ flex-direction:column; }
+    .btn{ justify-content:center; }
+    .hero-stats{ gap:24px; }
+    .stat h3{ font-size:1.5rem; }
+    .float-wa{ width:56px; height:56px; bottom:18px; right:18px; }
+    #visitorPanel{ width:calc(100% - 24px); right:12px; bottom:88px; }
+    .logo{ font-size:1.05rem; }
+    .contact-card .phone{ font-size:1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <a href="#home" class="logo">
+    <div class="logo-icon">🧼</div>
+    <div>TEMİZLİK <span>ŞİRKETİ</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Anasayfa</a></li>
+    <li><a href="#services">Hizmetler</a></li>
+    <li><a href="#why">Neden Biz?</a></li>
+    <li><a href="#contact">İletişim</a></li>
+  </ul>
+  <a href="tel:+905387823546" class="nav-cta">📞 Hemen Ara</a>
+  <button class="menu-btn" id="menuBtn">☰</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Evinize ve İşinize <span>Doğru Temizlik</span> Dokunuşu</h1>
+      <p>Profesyonel ekibimizle ev, ofis, villa ve inşaat sonrası temizlik hizmetlerinde pırıl pırıl sonuçlar. Güvenilir, hızlı ve titiz çalışma garantisiyle.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">🚀 Ücretsiz Teklif Al</a>
+        <a href="#services" class="btn btn-outline">Hizmetlerimiz →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <h3>500+</h3>
+          <p>Mutlu Müşteri</p>
+        </div>
+        <div class="stat">
+          <h3>%100</h3>
+          <p>Memnuniyet</p>
+        </div>
+        <div class="stat">
+          <h3>7/24</h3>
+          <p>Destek Hattı</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>📞 Bize Ulaşın</h3>
+      <p>Hemen arayın, ücretsiz keşif ve fiyat teklifi alın.</p>
+
+      <a href="tel:+905387823546" class="contact-item">
+        <div class="contact-icon ci-blue">📱</div>
+        <div class="info">
+          <small>Destek Hattı</small>
+          <strong>0538 782 35 46</strong>
+        </div>
+      </a>
+
+      <a href="https://wa.me/905387823546?text=Merhaba%2C%20temizlik%20hizmeti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="wa-btn">
+        💬 WhatsApp ile Yaz
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <span class="section-tag">Hizmetlerimiz</span>
+    <h2>Profesyonel <span>Temizlik Çözümleri</span></h2>
+    <p>Her alan için özel ekipman ve uzman kadromuzla en ince detaya kadar temizlik.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">🪟</div>
+        <h3>Cam Silme</h3>
+        <p>Yüksek katlar dahil profesyonel ekipmanlarla lekesiz, iz bırakmayan cam temizliği.</p>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">🏠</div>
+        <h3>Ev Temizliği</h3>
+        <p>Detaylı ev temizliği; mutfak, banyo, oda ve tüm yaşam alanlarınız pırıl pırıl.</p>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">🏢</div>
+        <h3>Dükkan & Ofis Temizliği</h3>
+        <p>İş yeriniz için düzenli veya tek seferlik, hijyenik ve profesyonel temizlik hizmeti.</p>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">🏗️</div>
+        <h3>İnşaat Sonrası Temizlik</h3>
+        <p>İnşaat ve tadilat sonrası oluşan kalıntı, toz ve molozların profesyonel temizliği.</p>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">🏡</div>
+        <h3>Villa Temizliği</h3>
+        <p>Geniş yaşam alanları, bahçe ve havuz çevresi dahil komple villa temizliği.</p>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80');"></div>
+      <div class="service-body">
+        <div class="service-icon">✨</div>
+        <h3>Özel Temizlik</h3>
+        <p>İhtiyacınıza özel çözümler. Bize ulaşın, size en uygun temizlik planını hazırlayalım.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-visual reveal">
+      <h3>Neden Temizlik Şirketi?</h3>
+      <p>Yılların verdiği tecrübe ve güler yüzlü ekibimizle güvenilir temizlik hizmeti.</p>
+      <ul class="why-list">
+        <li>Deneyimli ve profesyonel ekip</li>
+        <li>Kaliteli ve sağlığa uygun temizlik ürünleri</li>
+        <li>Zamanında ve planlı çalışma</li>
+        <li>Uygun ve şeffaf fiyatlandırma</li>
+        <li>%100 müşteri memnuniyeti garantisi</li>
+      </ul>
+    </div>
+
+    <div class="why-features">
+      <div class="feature reveal">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <h4>Hızlı Hizmet</h4>
+          <p>Aradığınız gün veya ertesi gün ekibimiz kapınızda.</p>
+        </div>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🛡️</div>
+        <div>
+          <h4>Güvenilir Ekip</h4>
+          <p>Referanslı, güler yüzlü ve titiz çalışan kadromuzla tanışın.</p>
+        </div>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">💰</div>
+        <div>
+          <h4>Uygun Fiyat</h4>
+          <p>Bütçenize uygun, sürpriz maliyet olmayan net fiyatlar.</p>
+        </div>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">📞</div>
+        <div>
+          <h4>7/24 Destek</h4>
+          <p>Telefon veya WhatsApp üzerinden her zaman ulaşabilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="section-head reveal">
+    <span class="section-tag" style="background:rgba(14,165,233,.15);color:#7dd3fc;">İletişim</span>
+    <h2>Bize <span>Ulaşın</span></h2>
+    <p>Ücretsiz keşif ve fiyat teklifi için hemen arayın veya WhatsApp'tan yazın.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-card reveal">
+      <div class="avatar">📞</div>
+      <h3>Müşteri Destek Hattı</h3>
+      <p class="role">7/24 Hizmetinizdeyiz</p>
+      <a href="tel:+905387823546" class="phone">📞 0538 782 35 46</a>
+      <div class="actions">
+        <a href="tel:+905387823546" class="btn-call">📞 Hemen Ara</a>
+        <a href="https://wa.me/905387823546?text=Merhaba%2C%20temizlik%20hizmeti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <a href="#home" class="logo">
+    <div class="logo-icon">🧼</div>
+    <div>TEMİZLİK <span>ŞİRKETİ</span></div>
+  </a>
+  <p>Profesyonel temizlik hizmetleri | Ev • Ofis • Villa • İnşaat Sonrası • Cam</p>
+  <p>📞 0538 782 35 46</p>
+  <div class="copy">
+    © 2025 <span>Temizlik Şirketi</span> — Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/905387823546?text=Merhaba%2C%20temizlik%20hizmeti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="float-wa" title="WhatsApp ile yaz">💬</a>
+
+<!-- ===== ADMIN TOGGLE (gizli köşe butonu) ===== -->
+<button id="adminToggle" title="Ziyaretçi Bilgileri">🔒</button>
+
+<!-- ===== ZİYARETÇİ BİLGİ PANELİ ===== -->
+<div id="visitorPanel">
+  <h4>
+    🛡️ Ziyaretçi Bilgileri
+    <button class="close-btn" onclick="document.getElementById('visitorPanel').classList.remove('open')">✕</button>
+  </h4>
+  <div id="visitorInfo"></div>
+  <div class="log-title">📋 Kayıtlı Ziyaretçiler (<span id="logCount">0</span>)</div>
+  <div id="visitorLog"></div>
+</div>
+
+<script>
+  /* ======================== NAVBAR & MENU ======================== */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.textContent = '☰';
+    });
+  });
+
+  /* ======================== SCROLL REVEAL ======================== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('active'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ======================== ZİYARETÇİ BİLGİSİ TOPLAMA ======================== */
+  // NOT: Bu bilgiler sadece GÖRÜNTÜLEME amaçlıdır. DDoS engellemez.
+  // Gerçek koruma için Cloudflare ücretsiz planını kullanın.
+
+  const STORAGE_KEY = 'dt_visitor_logs';
+  const MAX_LOGS = 50;
+
+  function getDeviceModel() {
+    const ua = navigator.userAgent;
+    const models = [
+      { regex:/iPhone/, name:'iPhone' },
+      { regex:/iPad/, name:'iPad' },
+      { regex:/Samsung|SM-/, name:'Samsung Galaxy' },
+      { regex:/Huawei|HUAWEI/, name:'Huawei' },
+      { regex:/Xiaomi|Redmi|POCO/, name:'Xiaomi / Redmi' },
+      { regex:/Oppo/, name:'Oppo' },
+      { regex:/Vivo/, name:'Vivo' },
+      { regex:/OnePlus/, name:'OnePlus' },
+      { regex:/Macintosh|Mac OS X/, name:'Mac' },
+      { regex:/Windows NT 10/, name:'Windows 10/11 PC' },
+      { regex:/Windows NT/, name:'Windows PC' },
+      { regex:/Linux/, name:'Linux PC' },
+      { regex:/Android/, name:'Android Cihaz' }
+    ];
+    for (const m of models) {
+      if (m.regex.test(ua)) return m.name;
+    }
+    return 'Bilinmeyen Cihaz';
+  }
+
+  function getOS() {
+    const ua = navigator.userAgent;
+    if (/Windows NT 10/.test(ua)) return 'Windows 10/11';
+    if (/Windows NT/.test(ua)) return 'Windows';
+    if (/Android/.test(ua)) return 'Android';
+    if (/iPhone|iPad|iPod/.test(ua)) return 'iOS';
+    if (/Mac OS X/.test(ua)) return 'macOS';
+    if (/Linux/.test(ua)) return 'Linux';
+    return 'Bilinmiyor';
+  }
+
+  function getBrowser() {
+    const ua = navigator.userAgent;
+    if (/Edg\//.test(ua)) return 'Microsoft Edge';
+    if (/OPR\//.test(ua) || /Opera/.test(ua)) return 'Opera';
+    if (/Chrome\//.test(ua) && !/Edg|OPR/.test(ua)) return 'Chrome';
+    if (/Firefox\//.test(ua)) return 'Firefox';
+    if (/Safari\//.test(ua) && !/Chrome/.test(ua)) return 'Safari';
+    return 'Bilinmiyor';
+  }
+
+  async function getIP() {
+    try {
+      const r = await fetch('https://api.ipify.org?format=json');
+      const d = await r.json();
+      return d.ip;
+    } catch(e) {
+      return 'Alınamadı';
+    }
+  }
+
+  async function getLocation() {
+    try {
+      const r = await fetch('https://ipapi.co/json/');
+      const d = await r.json();
+      return `${d.city || '?'}, ${d.region || '?'}, ${d.country_name || '?'}`;
+    } catch(e) {
+      return 'Alınamadı';
+    }
+  }
+
+  function getScreenInfo() {
+    return `${screen.width}x${screen.height} (pencere: ${window.innerWidth}x${window.innerHeight})`;
+  }
+
+  function getLanguage() {
+    return navigator.language || navigator.userLanguage || '?';
+  }
+
+  function getTimezone() {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || '?';
+    } catch(e) { return '?'; }
+  }
+
+  function getConnection() {
+    const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!c) return 'Bilinmiyor';
+    return `${c.effectiveType || '?'} / ${c.downlink || '?'} Mbps`;
+  }
+
+  function getBatteryLevel() {
+    return new Promise(resolve => {
+      if (navigator.getBattery) {
+        navigator.getBattery().then(b => {
+          resolve(`${Math.round(b.level * 100)}% ${b.charging ? '(şarjda)' : ''}`);
+        }).catch(() => resolve('Alınamadı'));
+      } else {
+        resolve('Desteklenmiyor');
+      }
+    });
+  }
+
+  async function collectVisitorInfo() {
+    const info = {
+      ip: await getIP(),
+      device: getDeviceModel(),
+      os: getOS(),
+      browser: getBrowser(),
+      screen: getScreenInfo(),
+      language: getLanguage(),
+      timezone: getTimezone(),
+      location: await getLocation(),
+      connection: getConnection(),
+      battery: await getBatteryLevel(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer || 'Doğrudan giriş',
+      date: new Date().toLocaleString('tr-TR')
+    };
+    return info;
+  }
+
+  function saveLog(info) {
+    try {
+      let logs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      logs.unshift(info);
+      if (logs.length > MAX_LOGS) logs = logs.slice(0, MAX_LOGS);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
+      return logs;
+    } catch(e) { return []; }
+  }
+
+  function renderVisitorInfo(info) {
+    const el = document.getElementById('visitorInfo');
+    el.innerHTML = `
+      <div class="row"><span>IP Adresi</span><strong>${info.ip}</strong></div>
+      <div class="row"><span>Cihaz Modeli</span><strong>${info.device}</strong></div>
+      <div class="row"><span>İşletim Sistemi</span><strong>${info.os}</strong></div>
+      <div class="row"><span>Tarayıcı</span><strong>${info.browser}</strong></div>
+      <div class="row"><span>Ekran</span><strong>${info.screen}</strong></div>
+      <div class="row"><span>Dil</span><strong>${info.language}</strong></div>
+      <div class="row"><span>Saat Dilimi</span><strong>${info.timezone}</strong></div>
+      <div class="row"><span>Konum (yaklaşık)</span><strong>${info.location}</strong></div>
+      <div class="row"><span>Bağlantı</span><strong>${info.connection}</strong></div>
+      <div class="row"><span>Pil</span><strong>${info.battery}</strong></div>
+      <div class="row"><span>Ziyaret Tarihi</span><strong>${info.date}</strong></div>
+    `;
+  }
+
+  function renderLogs(logs) {
+    const el = document.getElementById('visitorLog');
+    document.getElementById('logCount').textContent = logs.length;
+    if (!logs.length) {
+      el.innerHTML = '<div class="log-entry">Henüz kayıt yok.</div>';
+      return;
+    }
+    el.innerHTML = logs.map(l => `
+      <div class="log-entry">
+        <strong style="color:#10b981">${l.ip}</strong> — ${l.device}<br>
+        <span style="color:#94a3b8">${l.location}</span><br>
+        <span style="color:#64748b;font-size:.68rem">${l.date}</span>
+      </div>
+    `).join('');
+  }
+
+  (async () => {
+    const info = await collectVisitorInfo();
+    const logs = saveLog(info);
+    renderVisitorInfo(info);
+    renderLogs(logs);
+    console.log('%c🛡️ Ziyaretçi Bilgisi', 'background:#0ea5e9;color:#fff;padding:4px 8px;border-radius:4px;font-weight:bold;', info);
+  })();
+
+  document.getElementById('adminToggle').addEventListener('click', () => {
+    const p = document.getElementById('visitorPanel');
+    p.classList.toggle('open');
+    if (p.classList.contains('open')) {
+      const logs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      renderLogs(logs);
+    }
+  });
+
+  /* ======================== DISCORD WEBHOOK (OPSİYONEL) ========================
+     Ziyaretçi bilgilerini Discord kanalına göndermek istersen:
+     1. Discord'da bir sunucu oluştur, kanal ayarlarından "Webhook" oluştur.
+     2. URL'yi kopyala ve aşağıya yapıştır.
+     3. Yorumu kaldır, aktif olur.
+  ================================================================================ */
+  /*
+  const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/XXXX/YYYY';
+  (async () => {
+    const info = await collectVisitorInfo();
+    await fetch(DISCORD_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content: `🌐 **Yeni Ziyaretçi**\n**IP:** ${info.ip}\n**Cihaz:** ${info.device}\n**OS:** ${info.os}\n**Konum:** ${info.location}\n**Tarayıcı:** ${info.browser}`
+      })
+    }).catch(()=>{});
+  })();
+  */
+</script>
+
+</body>
+</html>
